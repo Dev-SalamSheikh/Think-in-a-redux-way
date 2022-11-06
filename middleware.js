@@ -1,5 +1,3 @@
-const fetch = require("node-fetch");
-
 // Delayed Middleware
 
 const delayedMiddleware = (store) => (next) => (action) => {
