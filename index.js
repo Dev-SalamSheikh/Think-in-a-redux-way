@@ -1,5 +1,6 @@
 const { createStore, applyMiddleware } = require("redux");
-const { delayedMiddleware, fetchTodoFromServer } = require("./middleware");
+const { delayedMiddleware, fetchDataFromServer } = require("./middleware");
+const { fetchTodos } = require("./functions");
 
 // Initial State
 const initialState = {
@@ -34,7 +35,7 @@ const todoReducer = (state = initialState, action) => {
 // Creating Store
 const store = createStore(
   todoReducer,
-  applyMiddleware(delayedMiddleware, fetchTodoFromServer)
+  applyMiddleware(delayedMiddleware, fetchDataFromServer)
 );
 
 // Subscribing Store
@@ -49,6 +50,4 @@ store.subscribe(() => {
 // });
 
 // Have to dispatch a fake action to call api
-store.dispatch({
-  type: "todos/fetchTodos",
-});
+store.dispatch(fetchTodos);
