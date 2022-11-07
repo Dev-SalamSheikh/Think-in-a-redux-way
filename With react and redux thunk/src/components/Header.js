@@ -37,7 +37,7 @@ export default function Header() {
         <img src={noteImage} className="w-6 h-6" alt="Add todo" />
         <input
           type="text"
-          placeholder="Type your todo"
+          placeholder="Type Your Today's Task"
           className="w-full text-lg px-4 py-1 border-none outline-none bg-gray-100 text-gray-500"
           value={input}
           onChange={handleInput}

@@ -6,6 +6,8 @@ import {
   DELETED,
   TOGGLED,
   LOADED,
+  UPDATE,
+  CLOADED,
 } from "./actionTypes";
 
 export const loaded = (todos) => {
@@ -15,10 +17,27 @@ export const loaded = (todos) => {
   };
 };
 
+export const cloaded = (todos) => {
+  return {
+    type: CLOADED,
+    payload: todos,
+  };
+};
+
 export const added = (todoText) => {
   return {
     type: ADDED,
     payload: todoText,
+  };
+};
+
+export const update = (todoId, updatedValue) => {
+  return {
+    type: UPDATE,
+    payload: {
+      todoId,
+      updatedValue,
+    },
   };
 };
 
