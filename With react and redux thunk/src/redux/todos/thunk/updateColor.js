@@ -1,6 +1,6 @@
 import { colorSelected } from "../actions";
 
-const updateStatus = (todoId, color) => {
+const updateColor = (todoId, color) => {
   return async (disptach) => {
     const response = await fetch(`http://localhost:9000/todos/${todoId}`, {
       method: "PATCH",
@@ -17,4 +17,4 @@ const updateStatus = (todoId, color) => {
   };
 };
 
-export default updateStatus;
+export default updateColor;
