@@ -1,37 +1,7 @@
 {
   "todos": [
     {
-      "id": 1,
-      "text": "Learn Vanilla JavaScript",
-      "completed": true,
-      "color": "yellow"
-    },
-    {
-      "id": 2,
-      "text": "Learn Modern ES6+ JavaScript",
-      "completed": true,
-      "color": "red"
-    },
-    {
-      "id": 3,
-      "text": "Learn React JS",
-      "completed": true,
-      "color": "yellow"
-    },
-    {
-      "text": "Learn Redux Basics",
-      "completed": true,
-      "id": 4,
-      "color": "red"
-    },
-    {
-      "text": "Learn Redux fundamentals",
-      "completed": true,
-      "id": 5,
-      "color": "red"
-    },
-    {
-      "text": "learn Redux",
+      "text": "Learn Redux",
       "completed": false,
       "id": 6
     },
@@ -49,6 +19,11 @@
       "text": "Shafi needs to be taken to the doctor",
       "completed": false,
       "id": 9
+    },
+    {
+      "text": "Have to go to the mosque for fazar prayer",
+      "completed": false,
+      "id": 10
     }
   ]
 }
