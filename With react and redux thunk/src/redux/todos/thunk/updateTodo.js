@@ -1,18 +1,21 @@
-import { update } from "../actions";
+import { edittitle } from "../actions";
 
-const updateTodo = (todoId, updatedValue) => {
+const updateTodo = (todoId, newText, setEdit) => {
   return async (disptach) => {
-    await fetch(`http://localhost:9000/todos/${todoId}`, {
+    const res = await fetch(`http://localhost:9000/todos/${todoId}`, {
       method: "PATCH",
       body: JSON.stringify({
-        text: updatedValue,
+        text: newText,
       }),
       headers: {
         "Content-type": "application/json; charset = UTF-8",
       },
     });
 
-    disptach(update(todoId, update));
+    const todo = await res.json();
+
+    disptach(edittitle(todo.id, todo.text));
+    setEdit(false);
   };
 };
 

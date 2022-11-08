@@ -6,6 +6,7 @@ import {
   DELETED,
   TOGGLED,
   LOADED,
+  EDITTITLE,
 } from "./actionTypes";
 import initialState from "./initialState";
 
@@ -66,6 +67,18 @@ const reducer = (state = initialState, action) => {
 
     case CLEARCOMPLETED:
       return state.filter((todo) => !todo.completed);
+
+    case EDITTITLE:
+      const { id, newText } = action.payload;
+      return state.map((todo) => {
+        if (todo.id !== id) {
+          return todo;
+        }
+        return {
+          ...todo,
+          text: newText,
+        };
+      });
 
     default:
       return state;

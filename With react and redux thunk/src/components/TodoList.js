@@ -12,6 +12,10 @@ export default function TodoList() {
     disptach(fetchTodos);
   }, [disptach]);
 
+  const filterByIncomplete = (todo) => {
+    return !todo.completed;
+  };
+
   const filterByStatus = (todo) => {
     const { status } = filters;
     switch (status) {
@@ -37,6 +41,7 @@ export default function TodoList() {
   return (
     <div className="mt-2 text-gray-700 text-sm max-h-[300px] overflow-y-auto">
       {todos
+        .filter(filterByIncomplete)
         .filter(filterByStatus)
         .filter(filterByColors)
         .map((todo) => (

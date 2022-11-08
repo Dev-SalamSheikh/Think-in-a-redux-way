@@ -4,18 +4,14 @@ import updateStatus from "../redux/todos/thunk/updateStatus";
 import updateColor from "../redux/todos/thunk/updateColor";
 import deleteTodo from "../redux/todos/thunk/deleteTodo";
 import { useState } from "react";
+import EditForm from "./EditForm";
 import updateTodo from "../redux/todos/thunk/updateTodo";
 
 export default function Todo({ todo }) {
-  const dispatch = useDispatch();
   const [edit, setEdit] = useState(false);
+  const dispatch = useDispatch();
 
-  const submitHandler = (todoId) => {
-    dispatch(updateTodo(todoId, input));
-    setEdit(false);
-  };
   const { text, id, completed, color } = todo;
-  const [input, setInput] = useState(text);
 
   const handleStatusChange = (todoId) => {
     dispatch(updateStatus(todoId, completed));
@@ -27,6 +23,11 @@ export default function Todo({ todo }) {
 
   const handleDelete = (todoId) => {
     dispatch(deleteTodo(todoId));
+  };
+
+  const handleSubmit = (e, newText) => {
+    e.preventDefault();
+    dispatch(updateTodo(id, newText, setEdit));
   };
 
   return (
@@ -55,17 +56,7 @@ export default function Todo({ todo }) {
       </div>
 
       <div className={`select-none flex-1`}>
-        {edit && (
-          <form onSubmit={() => submitHandler(id)}>
-            <input
-              type="text"
-              value={input}
-              className="w-full border-none outline-none"
-              onChange={(e) => setInput(e.target.value)}
-            />
-          </form>
-        )}
-        {!edit && <span>{text}</span>}
+        {edit ? <EditForm handleSubmit={handleSubmit} todoText={text} /> : text}
       </div>
 
       <div

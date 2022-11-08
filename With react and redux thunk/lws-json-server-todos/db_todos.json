@@ -1,15 +1,10 @@
 {
   "todos": [
     {
-      "text": "Have to Go to the Mosque for fazar prayer",
-      "completed": true,
+      "text": "Have to Go for Asaar Prayer at mosque",
+      "completed": false,
       "id": 1,
       "color": "red"
-    },
-    {
-      "text": "Hi Bal Vallgena",
-      "completed": true,
-      "id": 2
     }
   ]
 }
